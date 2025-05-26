@@ -10,7 +10,7 @@ echo "Starting dotfiles installation..."
 mkdir -p "$BACKUP_DIRECTORY"
 
 for file in "${DOTFILES[@]}"; do
-    SOURCE="$DOTFILES_DIR/$file"
+    SOURCE="$DOTFILES_DIRECTORY/$file"
     DESTINATION="$HOME/$file"
 
     if [ -f "$DESTINATION" ] || [ -L "$DESTINATION" ]; then
@@ -19,7 +19,7 @@ for file in "${DOTFILES[@]}"; do
     fi
 
     echo "Linking $file to $DESTINATION"
-    ln -s "$SRC" "$DESTINATION"
+    ln -s "$SOURCE" "$DESTINATION"
 done
 
 echo "Installation complete. Yipeee!!"
